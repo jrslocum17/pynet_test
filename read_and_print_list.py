@@ -1,5 +1,4 @@
-#!/home/jslocum/VENV/py27_venv/bin/python
-
+#!/usr/bin/env python
 
 import yaml
 import json
