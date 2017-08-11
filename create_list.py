@@ -15,7 +15,7 @@ some_list[-1]['amphibian'] = "frog"
 pp(some_list)
 
 with open("list_output.json", "w") as f:
- json.dump(some_list,f)
+    json.dump(some_list,f)
 
 with open("list_output.yml", "w") as f:
- f.write(yaml.dump(some_list,default_flow_style=False))
+    f.write(yaml.dump(some_list,default_flow_style=False))

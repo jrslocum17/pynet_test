@@ -1,4 +1,4 @@
-#!/home/jslocum/VENV/py27_venv/bin/python
+#!/home/jslocum/VENV/py27_venv/bin/python27
 
 from ciscoconfparse import CiscoConfParse
 cisco_cfg = CiscoConfParse("cisco_ipsec.txt")
