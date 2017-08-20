@@ -3,8 +3,9 @@
 This program prints out Hello World
 """
 
+import my_func
 def main():
-    print "Hello World"
+    my_func.HelloWorld()
 
 if __name__ == "__main__":
     main()
