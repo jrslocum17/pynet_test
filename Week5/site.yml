@@ -1,0 +1,6 @@
+---
+- name: Generate switch configuration file
+  hosts: localhost
+
+  roles:
+    - switch

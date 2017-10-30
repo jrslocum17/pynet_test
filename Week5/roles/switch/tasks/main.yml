@@ -1,0 +1,4 @@
+---
+- name: Generate switch configuration file
+  template: src=switch1.j2  dest=/home/jslocum/test/pynet_test/Week5/{{item.hostname}}.cfg
+  with_items: "{{ test_switches }}"
