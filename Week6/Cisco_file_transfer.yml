@@ -1,0 +1,17 @@
+---
+
+- name: Cisco file transfer test
+  hosts: cisco
+  gather_facts: False
+
+  tasks:
+  - name: Test the Cisco file transfer
+    cisco_file_transfer:
+      source_file="/home/jslocum/ANSIBLE/cisco_log1.txt"
+      dest_file=cisco_log1.txt
+      overwrite=true
+      enable_scp=true
+      host={{ host }}
+      port={{ port }}
+      username={{ username }}
+      password={{ password }}

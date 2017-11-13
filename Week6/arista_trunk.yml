@@ -1,0 +1,13 @@
+---
+
+- name: Arista Trunk
+  hosts: arista
+
+  tasks:
+    - name: Configure Ethernet2 for trunking
+      eos_switchport: name=Ethernet2 mode=trunk trunk_native_vlan=1 trunk_allowed_vlans=322,467,701
+          username={{ eapi_username }}
+          password={{ eapi_password }}
+          host={{ eapi_hostname }}
+          port={{ eapi_port }}
+          transport=https

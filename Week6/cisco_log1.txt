@@ -1,0 +1,1 @@
+logging buffer 32768
