@@ -1,0 +1,12 @@
+---
+
+- name: Adding or removing a VLAN with my custom Ansible module
+  hosts: arista
+
+  tasks:
+    - name: Create a VLAN
+      ans_add_remove_vlan:
+        host={{ "pynet-sw4" }}
+        vlan_num={{ "250" }}
+        vlan_name={{ "Orange" }}
+        remove=False
