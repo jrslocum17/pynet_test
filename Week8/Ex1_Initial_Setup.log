@@ -1,0 +1,248 @@
+(py27_venv)[jslocum@ip-172-30-0-53 ~]$ cd DJANGOX
+(py27_venv)[jslocum@ip-172-30-0-53 DJANGOX]$ cd djproject/
+(py27_venv)[jslocum@ip-172-30-0-53 djproject]$ ll
+total 12
+drwxr-xr-x 2 jslocum jslocum 4096 Jul 19 23:53 djproject
+-rwxr-xr-x 1 jslocum jslocum  252 Jul 19 23:52 manage.py
+drwxr-xr-x 3 jslocum jslocum 4096 Jul 19 23:54 net_system
+(py27_venv)[jslocum@ip-172-30-0-53 djproject]$ cd net_system/
+(py27_venv)[jslocum@ip-172-30-0-53 net_system]$ ll
+total 28
+-rw-r--r-- 1 jslocum jslocum   63 Jul 19 23:53 admin.py
+-rw-r--r-- 1 jslocum jslocum    0 Jul 19 23:53 __init__.py
+-rw-r--r-- 1 jslocum jslocum  481 Jul 19 23:54 load_credentials.py
+-rw-r--r-- 1 jslocum jslocum 1523 Jul 19 23:54 load_devices.py
+drwxr-xr-x 2 jslocum jslocum 4096 Jul 19 23:53 migrations
+-rw-r--r-- 1 jslocum jslocum 1156 Jul 19 23:53 models.py
+-rw-r--r-- 1 jslocum jslocum   60 Jul 19 23:53 tests.py
+-rw-r--r-- 1 jslocum jslocum   63 Jul 19 23:53 views.py
+(py27_venv)[jslocum@ip-172-30-0-53 net_system]$ cat models.py
+from django.db import models
+
+class Credentials(models.Model):
+    username        = models.CharField(max_length=50)
+    password        = models.CharField(max_length=50)
+    description     = models.CharField(max_length=200, blank=True, null=True)
+
+    def __unicode__(self):
+        return u'%s' % (self.username)
+
+    class Meta:
+        verbose_name_plural = "Credentials"
+
+class NetworkDevice(models.Model):
+    device_name     = models.CharField(primary_key=True, max_length=80)
+    device_type     = models.CharField(max_length=50)
+    ip_address      = models.GenericIPAddressField()
+    port            = models.IntegerField()
+    vendor          = models.CharField(max_length=50, blank=True, null=True)
+    model           = models.CharField(max_length=50, blank=True, null=True)
+    os_version      = models.CharField(max_length=100, blank=True, null=True)
+    serial_number   = models.CharField(max_length=50, blank=True, null=True)
+    uptime_seconds  = models.IntegerField(blank=True, null=True)
+    credentials     = models.ForeignKey(Credentials, blank=True, null=True)
+
+    def __unicode__(self):
+        return u'%s' % (self.device_name)
+(py27_venv)[jslocum@ip-172-30-0-53 net_system]$
+(py27_venv)[jslocum@ip-172-30-0-53 net_system]$ cat load_credentials.py
+
+from net_system.models import Credentials
+import django
+
+
+if __name__ == "__main__":
+
+    django.setup()
+
+    std_creds = Credentials.objects.get_or_create(
+        username = 'pyclass',
+        password = '88newclass',
+        description = 'Standard credentials'
+    )
+    print std_creds
+
+    arista_creds = Credentials.objects.get_or_create(
+        username = 'admin1',
+        password = '99saturday',
+        description = 'Arista credentials'
+    )
+    print arista_creds
+(py27_venv)[jslocum@ip-172-30-0-53 net_system]$ cat load_devices.py
+
+from net_system.models import NetworkDevice
+import django
+
+def main():
+    django.setup()
+
+    pynet_rtr1 = NetworkDevice(
+        device_name='pynet-rtr1',
+        device_type='cisco_ios',
+        ip_address='184.105.247.70',
+        port=22,
+    )
+    pynet_rtr1.save()
+
+    pynet_rtr2 = NetworkDevice.objects.get_or_create(
+        device_name='pynet-rtr2',
+        device_type='cisco_ios',
+        ip_address='184.105.247.71',
+        port=22,
+    )
+    print pynet_rtr2
+
+    pynet_sw1 = NetworkDevice.objects.get_or_create(
+        device_name='pynet-sw1',
+        device_type='arista_eos',
+        ip_address='184.105.247.72',
+        port=22,
+    )
+    print pynet_sw1
+
+    pynet_sw2 = NetworkDevice.objects.get_or_create(
+        device_name='pynet-sw2',
+        device_type='arista_eos',
+        ip_address='184.105.247.73',
+        port=22,
+    )
+    print pynet_sw2
+
+    pynet_sw3 = NetworkDevice.objects.get_or_create(
+        device_name='pynet-sw3',
+        device_type='arista_eos',
+        ip_address='184.105.247.74',
+        port=22,
+    )
+    print pynet_sw3
+
+    pynet_sw4 = NetworkDevice.objects.get_or_create(
+        device_name='pynet-sw4',
+        device_type='arista_eos',
+        ip_address='184.105.247.75',
+        port=22,
+    )
+    print pynet_sw4
+
+    juniper_srx = NetworkDevice.objects.get_or_create(
+        device_name='juniper-srx',
+        device_type='juniper',
+        ip_address='184.105.247.76',
+        port=22,
+    )
+    print juniper_srx
+
+if __name__ == "__main__":
+    main()
+(py27_venv)[jslocum@ip-172-30-0-53 net_system]$ cd ..
+(py27_venv)[jslocum@ip-172-30-0-53 djproject]$ cat manage.py
+#!/usr/bin/env python
+import os
+import sys
+
+if __name__ == "__main__":
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "djproject.settings")
+
+    from django.core.management import execute_from_command_line
+
+    execute_from_command_line(sys.argv)
+(py27_venv)[jslocum@ip-172-30-0-53 djproject]$ python manage.py makemigrations
+Migrations for 'net_system':
+  0001_initial.py:
+    - Create model Credentials
+    - Create model NetworkDevice
+(py27_venv)[jslocum@ip-172-30-0-53 djproject]$ python manage.py migrate
+Operations to perform:
+  Synchronize unmigrated apps: staticfiles, messages
+  Apply all migrations: admin, contenttypes, net_system, auth, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+  Installing custom SQL...
+Running migrations:
+  Rendering model states... DONE
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying net_system.0001_initial... OK
+  Applying sessions.0001_initial... OK
+(py27_venv)[jslocum@ip-172-30-0-53 djproject]$
+(py27_venv)[jslocum@ip-172-30-0-53 djproject]$ export DJANGO_SETTINGS_MODULE=djproject.settings
+(py27_venv)[jslocum@ip-172-30-0-53 djproject]$ export PYTHONPATH=~/DJANGOX/djproject/
+(py27_venv)[jslocum@ip-172-30-0-53 djproject]$ cd net_system/
+(py27_venv)[jslocum@ip-172-30-0-53 net_system]$ python load_devices.py
+(<NetworkDevice: pynet-rtr2>, True)
+(<NetworkDevice: pynet-sw1>, True)
+(<NetworkDevice: pynet-sw2>, True)
+(<NetworkDevice: pynet-sw3>, True)
+(<NetworkDevice: pynet-sw4>, True)
+(<NetworkDevice: juniper-srx>, True)
+(py27_venv)[jslocum@ip-172-30-0-53 net_system]$ python load_credentials.py
+(<Credentials: pyclass>, True)
+(<Credentials: admin1>, True)
+(py27_venv)[jslocum@ip-172-30-0-53 net_system]$ cd ..
+(py27_venv)[jslocum@ip-172-30-0-53 djproject]$ python manage.py shell
+Python 2.7.12 (default, Nov  2 2017, 19:20:38)
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-11)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>>from net_system.models import NetworkDevice, Credentials
+>>> net_devices = NetworkDevice.objects.all()
+>>> net_devices
+[<NetworkDevice: pynet-rtr1>, <NetworkDevice: pynet-rtr2>, <NetworkDevice: pynet-sw1>, <NetworkDevice: pynet-sw2>, <NetworkDevice: pynet-sw3>, <NetworkDevice: pynet-sw4>, <NetworkDevice: juniper-srx>]
+>>> creds = Credentials.objects.all()
+>>> creds
+[<Credentials: pyclass>, <Credentials: admin1>]
+>>> type(creds)
+<class 'django.db.models.query.QuerySet'>
+>>> type(net_devices)
+<class 'django.db.models.query.QuerySet'>
+>>> for a_device in net_devices:
+...   print a_device.device_name
+...
+pynet-rtr1
+pynet-rtr2
+pynet-sw1
+pynet-sw2
+pynet-sw3
+pynet-sw4
+juniper-srx
+>>> cisco1 = net_devices[0]
+>>> cisco1.device_name
+u'pynet-rtr1'
+>>> cisco1.ip_address
+u'184.105.247.70'
+>>>
+>>> std_creds = creds[0]
+>>> arista_creds = creds[1]
+>>>
+>>> for a_device in net_devices:
+...   if 'pynet-sw' in a_device.device_name:
+...     a_device.credentials = arista_creds
+...   else:
+...     a_device.credentials = std_creds
+...   a_device.save()
+...
+>>> for a_device in net_devices:
+...   print a_device, a_device.credentials
+...
+pynet-rtr1 pyclass
+pynet-rtr2 pyclass
+pynet-sw1 admin1
+pynet-sw2 admin1
+pynet-sw3 admin1
+pynet-sw4 admin1
+juniper-srx pyclass
+>>> arista_creds
+<Credentials: admin1>
+>>> arista_creds.networkdevice_set.all()
+[<NetworkDevice: pynet-sw1>, <NetworkDevice: pynet-sw2>, <NetworkDevice: pynet-sw3>, <NetworkDevice: pynet-sw4>]
+>>> std_creds.networkdevice_set.all()
+[<NetworkDevice: pynet-rtr1>, <NetworkDevice: pynet-rtr2>, <NetworkDevice: juniper-srx>]
+>>>
