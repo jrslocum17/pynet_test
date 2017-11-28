@@ -1,0 +1,16 @@
+(py27_venv)[jslocum@ip-172-30-0-53 Week9]$ python
+Python 2.7.12 (default, Nov  2 2017, 19:20:38)
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-11)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import mytest
+>>> myObj = MyChildClass("red", "green", "blue")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'MyChildClass' is not defined
+>>> myObj = mytest.MyChildClass("red", "green", "blue")
+>>> myObj.hello()
+My variables forwards are red************  *****green*****  ***********blue
+My concat variable is redgreen
+>>> myObj.not_hello()
+My variables backwards are blue, green and red
+>>>

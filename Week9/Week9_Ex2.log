@@ -1,0 +1,34 @@
+(py27_venv)[jslocum@ip-172-30-0-53 Week9]$ python
+Python 2.7.12 (default, Nov  2 2017, 19:20:38)
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-11)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import mytest
+>>> func1()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'func1' is not defined
+>>> dir(mytest)
+['__builtins__', '__doc__', '__file__', '__name__', '__package__', '__path__', 'func1', 'func2', 'func3', 'simple', 'whatever', 'world']
+>>> mytest.func1()
+this is world func1
+>>> mytest.func2()
+this is simple func2
+>>> mytest.func3()
+this is whatever func3
+>>> quit()
+(py27_venv)[jslocum@ip-172-30-0-53 Week9]$ python
+Python 2.7.12 (default, Nov  2 2017, 19:20:38)
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-11)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from mytest import func1, func2, func3
+>>> func1()
+this is world func1
+>>> func2()
+this is simple func2
+>>> func3()
+this is whatever func3
+>>> dir(mytest)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'mytest' is not defined
+>>>

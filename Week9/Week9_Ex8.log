@@ -1,0 +1,13 @@
+(py27_venv)[jslocum@ip-172-30-0-53 Week9]$ python
+Python 2.7.12 (default, Nov  2 2017, 19:20:38)
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-11)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from mytest import *
+>>> dir()
+['MyChildClass', 'MyClass', '__builtins__', '__doc__', '__name__', '__package__', 'func1', 'func2', 'func3', 'mytest', 'pprint', 'sys']
+>>>
+>>> myObj = MyChildClass("lions", "tigers", "bears")
+>>> myObj.hello()
+My variables forwards are lions**********  ****tigers*****  **********bears
+My concat variable is lionstigers
+>>>

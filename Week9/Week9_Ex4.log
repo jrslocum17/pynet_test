@@ -1,0 +1,18 @@
+Python 2.7.12 (default, Nov  2 2017, 19:20:38)
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-11)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import mytest
+>>> my_obj = MyClass("one", "two", "three")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'MyClass' is not defined
+>>> dir(mytest)
+['MyChildClass', 'MyClass', '__all__', '__builtins__', '__doc__', '__file__', '__name__', '__package__', '__path__', 'func1', 'func2', 'func3', 'simple', 'whatever', 'world']
+>>> my_obj = mytest.MyClass("one", "two", "three")
+>>> dir(my_obj)
+['__class__', '__delattr__', '__dict__', '__doc__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'hello', 'not_hello', 'x', 'y', 'z']
+>>> my_obj.hello()
+My variables forwards are one, two and three
+>>> my_obj.not_hello()
+My variables backwards are three, two and one
+>>>

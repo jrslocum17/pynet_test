@@ -1,0 +1,33 @@
+(py27_venv)[jslocum@ip-172-30-0-53 Week9]$ env | grep PYTHON
+PYTHONPATH=/home/jslocum/python-libs:/home/jslocum/DJANGOX/djproject/
+(py27_venv)[jslocum@ip-172-30-0-53 Week9]$
+(py27_venv)[jslocum@ip-172-30-0-53 Week9]$ PYTHONPATH=$PYTHONPATH:~/test/pynet_test/Week9
+
+(py27_venv)[jslocum@ip-172-30-0-53 Week9]$ env | grep PYTHON
+PYTHONPATH=/home/jslocum/python-libs:/home/jslocum/DJANGOX/djproject/:/home/jslocum/test/pynet_test/Week9
+
+(py27_venv)[jslocum@ip-172-30-0-53 Week9]$ cd myWeek9Ex9/
+(py27_venv)[jslocum@ip-172-30-0-53 myWeek9Ex9]$ python
+Python 2.7.12 (default, Nov  2 2017, 19:20:38)
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-11)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import sys
+>>> from pprint import pprint
+>>> pprint(sys.path)
+['',
+ '/home/jslocum/python-libs',
+ '/home/jslocum/DJANGOX/djproject',
+ '/home/jslocum/test/pynet_test/Week9',
+ '/home/jslocum/VENV/py27_venv/local/lib64/python2.7/site-packages',
+ '/home/jslocum/VENV/py27_venv/local/lib/python2.7/site-packages',
+ '/home/jslocum/VENV/py27_venv/lib64/python2.7',
+ '/home/jslocum/VENV/py27_venv/lib/python2.7',
+ '/home/jslocum/VENV/py27_venv/lib64/python2.7/site-packages',
+ '/home/jslocum/VENV/py27_venv/lib/python2.7/site-packages',
+ '/home/jslocum/VENV/py27_venv/lib64/python2.7/lib-dynload',
+ '/usr/lib64/python2.7',
+ '/usr/lib/python2.7']
+>>> import mytest
+>>> mytest.__file__
+'/home/jslocum/test/pynet_test/Week9/mytest/__init__.pyc'
+>>>

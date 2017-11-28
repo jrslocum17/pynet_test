@@ -1,0 +1,18 @@
+(py27_venv)[jslocum@ip-172-30-0-53 Week9]$ ll
+total 36
+drwxrwxr-x 2 jslocum jslocum 4096 Nov 27 18:08 mytest
+drwxrwxr-x 2 jslocum jslocum 4096 Nov 27 18:16 myWeek9Ex9
+(py27_venv)[jslocum@ip-172-30-0-53 Week9]$
+(py27_venv)[jslocum@ip-172-30-0-53 Week9]$ cd myWeek9Ex9/
+(py27_venv)[jslocum@ip-172-30-0-53 myWeek9Ex9]$ python Ex9tests.py
+Now calling func1
+this is world func1
+Now calling func2
+this is simple func2
+Now calling func3
+this is whatever func3
+now calling hello method
+My variables forwards are upper, mid and lower
+now calling not_hello method
+My variables backwards are lower, mid and upper
+(py27_venv)[jslocum@ip-172-30-0-53 myWeek9Ex9]$
