@@ -1,0 +1,12 @@
+---
+- name: Changing a Juniper hostname with Ansible thru XML
+  hosts: juniper
+  gather_facts: false
+  tasks:
+    - name: Change the hostname thru XML
+      junos_install_config:
+        host={{ ansible_ssh_host }}
+        file=set_hostname.xml
+        overwrite=false
+        user={{ juniper_user }}
+        passwd={{ juniper_passwd }}
