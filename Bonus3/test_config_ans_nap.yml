@@ -1,0 +1,16 @@
+---
+
+- name: NAPALM Ansible VLAN configuration
+  hosts: arista
+  tasks:
+    - napalm_install_config:
+        hostname: "{{ eapi_hostname }}"
+        username: "{{ eapi_username }}"
+        password: "{{ eapi_password }}"
+        dev_os: eos
+        config_file: new_arista_vlans.cfg
+        commit_changes: True
+        replace_config: False
+        get_diffs: True
+        diff_file: "{{ eapi_hostname }}.diff"
+      tags: config
