@@ -1,0 +1,87 @@
+mportant notes about the lab environment
+
+1. You have been assigned an Arista vEOS switch and an interface on this switch to work on. These items are specified in the 'ansible-hosts' file in your home directory.
+
+For example, your ~/ansible-hosts file will contain something similar to the following:
+[arista]
+# primary interface == EthernetX
+# secondary interface == EthernetY
+pynet-swx ansible_connection=local eapi_username=eapi eapi_password=<passwd>
+                                             eapi_hostname=184.105.247.72 eapi_port=443
+
+
+EthernetX will be your primary switch interface
+EthernetY will be your backup switch interface
+
+
+Use the backup switch interface, if the primary switch interface is already in use.
+
+Remember each Arista vEOS switch is shared with a set of students so be considerate of the other students while working on it.
+
+
+2. You should create your playbooks in the ~/ANSIBLE directory. This is so Ansible knows how to find the relevant modules (these modules are located in ~/ANSIBLE/library).
+
+
+3. Please do NOT change any of the following on the Arista switches:
+
+    a. The VLAN1 IP address
+    b. The default gateway
+    c. The Ethernet1 interface
+
+Also please do NOT shutdown any of the Arista Ethernet interfaces. For some reason disabling any of the Ethernet interfaces causes the vEOS switch to completely lose connectivity.
+
+
+
+
+
+
+Exercises
+
+If you haven't already read them, please see the important lab notes above.
+
+My solutions to these exercises are posted at:
+https://github.com/ktbyers/pynet/tree/master/pyth_ans_ecourse/class6
+
+
+1. Using Ansible, configure three VLANs on the Arista switch specifying both the VLAN IDs and the VLAN names.  For the VLAN IDs randomly pick three numbers between 100 and 999.
+
+
+2. Use Ansible to configure your 'primary Ethernet interface' as follows:
+
+interface description:     *** IN USE ***
+switchport mode:          access
+VLAN:                           <one of the VLANs created in exercise1>
+
+Your 'primary Ethernet interface' is specified in your ~/ansible-hosts file.
+
+If your primary interface is already 'IN USE' (by someone else), then use your secondary interface (once again specified in ~/ansible-hosts).  You can determine if an interface is already in use by SSH'ing into the switch. Reminder, do NOT use Ethernet1.
+
+
+
+3. Use Ansible to configure your 'primary Ethernet interface' as follows:
+
+switchport mode:           trunk
+trunk native VLAN:        VLAN1
+trunk allowed VLANs:    <the three VLANs created in exercise1>
+
+
+
+4. Use Ansible to restore your 'primary Ethernet interface' back to the following state (or your secondary interface depending on which one you used):
+description:                    <none>
+switchport mode:           access
+access VLAN:                1
+trunk allowed VLANs:    all
+
+Also use Ansible to remove the three VLANs that you configured.
+
+
+5. Use the cisco_file_transfer.py module to transfer a small file to the Cisco pynet-rtr1 router.
+
+
+
+
+
+
+Regards,
+
+Kirk
