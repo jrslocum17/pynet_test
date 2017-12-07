@@ -1,5 +1,9 @@
 #!/usr/bin/env python
+"""
+Ex 1. Use Arista's eAPI to obtain 'show interfaces' from the switch. Parse the 'show interfaces' output to obtain the
+'inOctets' and 'outOctets' fields for each of the interfaces on the switch.  Accomplish this using Arista's pyeapi.
 
+"""
 import pyeapi
 from pprint import pprint
 

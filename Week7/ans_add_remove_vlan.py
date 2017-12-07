@@ -1,6 +1,19 @@
 #!/usr/bin/env python
 
 '''
+Ex. 3. Challenge exercise (optional) -- Using Arista's eAPI, write an Ansible module that adds a VLAN
+(both a VLAN ID and a VLAN name).  Do this in an idempotent manner i.e. only add the VLAN if it doesn't exist;
+only change the VLAN name if it is not correct.
+
+To simplify this process, use the .eapi.conf file to store the connection arguments
+(username, password, host, port, transport).
+
+For additional reference, see here
+
+http://docs.ansible.com/ansible/dev_guide/developing_modules_general.html
+
+The 'Common Module Boilerplate' section is important.
+
 Ansible module to create a VLAN if not present or just change its name.
 Will do nothing if VLAN is already present with the same name.
 '''
