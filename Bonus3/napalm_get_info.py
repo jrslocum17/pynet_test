@@ -1,5 +1,9 @@
 #!/usr/bin/env python
+"""
+Ex 3. Use the napalm_get_facts Ansible module and one of the Arista switches to view the data you get back from the
+‘facts’, ‘interfaces’, and ‘bgp_neighbors’ filters.
 
+"""
 from __future__ import print_function
 from __future__ import unicode_literals
 

@@ -1,5 +1,14 @@
 #!/usr/bin/env python
+"""
+Ex 2. Using NAPALM and the one of the Cisco routers perform the following config operations:
+a. Stage a change adding a /32 static route (merge operation). Use something in 1.1.X.X/32.
+b. Perform a compare_config operation to see your staged change.
+c. Discard your change.
+d. Verify compare_config shows no pending changes (after your discard operation).
+e. Re-stage your change adding a /32 static route (merge operation).
+f. Commit your change.
 
+"""
 from __future__ import print_function
 from __future__ import unicode_literals
 

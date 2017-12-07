@@ -1,0 +1,18 @@
+Ex 4. Create a text file corresponding to three VLANs that you want to configure on one of the four Arista switches. For example,
+vlans.txt
+---
+vlan 450
+  name blue1
+vlan 451
+  name blue2
+vlan 452
+  name blue3
+
+Choose random VLANS between 100 and 999.
+
+Use NAPALM and Ansible to push this configuration change (merge operation). Manually check the diff file before performing the commit.
+
+
+
+
+Kirk Byers

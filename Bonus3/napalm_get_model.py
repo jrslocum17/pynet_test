@@ -1,5 +1,18 @@
 #!/usr/bin/env python
+"""
+Ex 1. Construct a script that retrieves NAPALM facts from two IOS routers, two Arista switches, and one Junos device.
+pynet-rtr1   (Cisco IOS)  184.105.247.70
+pynet-rtr2   (Cisco IOS)  184.105.247.71
+pynet-sw1    (Arista EOS) 184.105.247.72
+pynet-sw2    (Arista EOS) 184.105.247.73
+​juniper-srx               184.105.247.76
 
+Retrieve the 'model' number from each device and print the model to standard out.
+
+As part of this exercise define the devices that you use in a Python file (for example my_devices.py) and import
+these devices into your program. Optionally, define the devices in a YAML file and read this my_devices.yml file in.
+
+"""
 from __future__ import print_function
 from __future__ import unicode_literals
 
