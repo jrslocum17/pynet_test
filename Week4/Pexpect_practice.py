@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+"""
+Ex 3. Use Pexpect to retrieve the output of 'show ip int brief' from pynet-rtr2.
+Ex 4. Use PExpect to change the logging buffer size (logging buffered <size>) on pynet-rtr2.
+Verify this change by examining the output of 'show run'.
+"""
 
 import pexpect
 from getpass import getpass

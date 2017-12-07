@@ -1,4 +1,12 @@
 #!/usr/bin/env python
+"""
+5. Use Netmiko to enter into configuration mode on pynet-rtr2. Also use Netmiko to verify your state
+(i.e. that you are currently in configuration mode).
+6. Use Netmiko to execute 'show arp' on pynet-rtr1, pynet-rtr2, and juniper-srx.
+7. Use Netmiko to change the logging buffer size (logging buffered <size>) on pynet-rtr2.
+8. Use Netmiko to change the logging buffer size (logging buffered <size>) and to disable console logging
+(no logging console) from a file on both pynet-rtr1 and pynet-rtr2 (see 'Errata and Other Info, item #4).
+"""
 
 from netmiko import ConnectHandler
 from datetime import datetime

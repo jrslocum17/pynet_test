@@ -1,5 +1,9 @@
 #!/usr/bin/env python
-
+"""
+Ex 1. Use Paramiko to retrieve the entire 'show version' output from pynet-rtr2.
+Ex 2. Use Paramiko to change the 'logging buffered <size>' configuration on pynet-rtr2.
+This will require that you enter into configuration mode.
+"""
 import paramiko
 from getpass import getpass
 from time import sleep
