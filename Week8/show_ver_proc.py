@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-
+"""
+Ex 7. Use processes and Netmiko to execute 'show version' on each device in the database.
+Calculate the amount of time required to do this.
+"""
 # Transfer this file to /home/jslocum/DJANGOX/djproject/ and execute there
 
 from netmiko import ConnectHandler

@@ -1,5 +1,10 @@
 #!/usr/bin/env python
+"""
+Ex 3. Create two new test NetworkDevices in the database. Use both direct object creation and the .get_or_create()
+method to create the devices.
 
+Ex 4. Remove the two objects created in the previous exercise from the database.
+"""
 # Transfer this file to /home/jslocum/DJANGOX/djproject/ and execute there
 
 from net_system.models import NetworkDevice, Credentials

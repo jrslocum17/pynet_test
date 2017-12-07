@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-
+"""
+Ex 2. Set the vendor field of each NetworkDevice to the appropriate vendor. Save this field to the database.
+"""
 # Transfer this file to /home/jslocum/DJANGOX/djproject/ and execute there
 
 from net_system.models import NetworkDevice, Credentials
