@@ -1,0 +1,15 @@
+- some_string
+- 99
+- 18
+- amphibian: frog
+  ip_addr: 10.234.120.1
+  mammal: bear
+  model: '2911'
+  platform: Cisco_IOS
+  vendor: cisco
+- another string
+- last string
+- - 0
+  - 1
+  - 2
+  - 3
