@@ -1,5 +1,12 @@
 #!/usr/bin/env python
+"""
+Ex 4. Use the PyEZ load() method to set the hostname of the SRX using set, conf (curly brace), and XML formats.
 
+After each load(), display the differences between the running config and the candidate config. Additionally,
+perform at least one commit and one rollback(0) in this program.
+
+The committed hostname at the end of the program should be:  pynet-jnpr-srx1
+"""
 from jnpr.junos import Device
 from jnpr.junos.utils.config import Config
 from pprint import pprint

@@ -1,5 +1,9 @@
 #!/usr/bin/env python
-
+"""
+Ex 2. For each of the SRX's interfaces, display: the operational state,
+packets-in, and packets-out. You will probably want to use EthPortTable for
+this.
+"""
 from jnpr.junos import Device
 from jnpr.junos.op.ethport import EthPortTable
 from getpass import getpass

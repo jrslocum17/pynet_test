@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-
+"""
+Ex 1. Use Juniper's PyEZ library to make a connection to the Juniper SRX and to print out the device's facts.
+"""
 
 from jnpr.junos import Device
 from getpass import getpass
